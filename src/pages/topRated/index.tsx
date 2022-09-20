@@ -1,5 +1,20 @@
+import { useState } from "react"
+import { getShows } from "../../adapters"
+import { ITopShow } from "../../types"
+
 export function TopRated() {
+    const [results, setResults] = useState([])
+
+    const getResults = async ()=>{
+        const shows = await getShows("top_rated")
+        setResults(shows)
+    }
+
+    getResults()
+
     return(
-        <h1>As mais votadas</h1>
+        <>
+            {results.map((show:ITopShow)=><p>{show.name}</p>)}
+        </>
     )
 }

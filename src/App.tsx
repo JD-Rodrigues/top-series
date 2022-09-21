@@ -11,8 +11,7 @@ import { TopRated } from "./pages/topRated"
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter> */}
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
             <Route path="/top-series" element={<Layout />}>
                 <Route index element={<AiringToday />}/>
@@ -23,8 +22,7 @@ function App() {
                 <Route path="search/:name" element={<SearchResults/>} />
             </Route>
         </Routes> 
-      </HashRouter>
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </div>
 )
 }

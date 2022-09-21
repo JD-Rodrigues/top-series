@@ -14,7 +14,7 @@ export interface ITopShow {
     vote_count:number;
 }
 
-export interface LayoutProps {
-    setSearch: React.Dispatch<React.SetStateAction<string>>
+export interface SearchResultsProps {
+    results: ITopShow[]
 }
 

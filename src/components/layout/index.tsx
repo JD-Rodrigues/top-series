@@ -6,7 +6,7 @@ export function Layout() {
     const navigate = useNavigate()
     const handleSearch = () => {
         const search = document.querySelector("#search") as HTMLInputElement   
-        search.value && navigate(`/search/${search.value}`)
+        search.value && navigate(`/${search.value}`)
     }
     return(
         <>

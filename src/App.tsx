@@ -19,7 +19,7 @@ function App() {
                 <Route path="top-rated" element={<TopRated/>} />
                 <Route path="releases" element={<Releases/>} />
                 <Route path="shows/:title" element={<ShowInfo/>} />
-                <Route path="search/:name" element={<Search/>} />
+                <Route path=":name" element={<Search/>} />
             </Route>
         </Routes> 
       </BrowserRouter>

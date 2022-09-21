@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { searchShows } from "../../adapters"
+import { NoResults } from "../../components/noResults"
+import { SearchResults } from "../../components/searchResults"
 import { ITopShow } from "../../types"
 
 export function Search(){
@@ -22,7 +24,7 @@ export function Search(){
     
     return (
         <>
-            {results.map(show => <p key={show.id}>{show.name}</p>)}
+            {results.length > 0 ? <SearchResults results={results}/> : <NoResults />}
         </>
     )
 }

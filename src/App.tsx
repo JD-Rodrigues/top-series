@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-            <Route path="/top-series" element={<Layout />}>
+            <Route path="/" element={<Layout />}>
                 <Route index element={<AiringToday />}/>
                 <Route path="top-popular" element={<TopPopular/>} />
                 <Route path="top-rated" element={<TopRated/>} />

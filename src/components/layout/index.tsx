@@ -6,7 +6,7 @@ export function Layout() {
     const navigate = useNavigate()
     const handleSearch = () => {
         const search = document.querySelector("#search") as HTMLInputElement   
-        search.value && navigate(`search/${search.value}`)
+        search.value && navigate(`/search/${search.value}`)
     }
     return(
         <>
@@ -14,9 +14,9 @@ export function Layout() {
             <img src="" alt="" />
             <nav>
             <ul>
-                <li><Link to="/top-series/top-popular">Mais populares</Link></li>
-                <li><Link to="/top-series/top-rated">Mais votadas</Link></li>
-                <li><Link to="/top-series/releases">Lançamentos</Link></li>
+                <li><Link to="/top-popular">Mais populares</Link></li>
+                <li><Link to="/top-rated">Mais votadas</Link></li>
+                <li><Link to="/releases">Lançamentos</Link></li>
             </ul>
             <form onSubmit={handleSearch} action="">
                 <input type="search" id="search"/>

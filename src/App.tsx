@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom"
 import { Layout } from "./components/layout"
 import { AiringToday } from "./pages/home"
 import { Releases } from "./pages/releases"
@@ -11,7 +11,8 @@ import { TopRated } from "./pages/topRated"
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
+      <HashRouter>
         <Routes>
             <Route path="/top-series" element={<Layout />}>
                 <Route index element={<AiringToday />}/>
@@ -22,7 +23,8 @@ function App() {
                 <Route path="search/:name" element={<SearchResults/>} />
             </Route>
         </Routes> 
-      </BrowserRouter>
+      </HashRouter>
+      {/* </BrowserRouter> */}
     </div>
 )
 }

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { searchShows } from "../../adapters"
 import { ITopShow } from "../../types"
 
-export function SearchResults(){
+export function Search(){
     const [results, setResults] = useState<ITopShow[]>([])
     const {name} = useParams() 
     

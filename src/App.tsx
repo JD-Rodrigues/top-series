@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Layout } from "./components/layout"
 import { AiringToday } from "./pages/home"
 import { Releases } from "./pages/releases"
-import { SearchResults } from "./pages/searchResults"
+import { Search } from "./pages/search"
 import { ShowInfo } from "./pages/showInfo"
 import { TopPopular } from "./pages/topPopular"
 import { TopRated } from "./pages/topRated"
@@ -19,7 +19,7 @@ function App() {
                 <Route path="top-rated" element={<TopRated/>} />
                 <Route path="releases" element={<Releases/>} />
                 <Route path="shows/:title" element={<ShowInfo/>} />
-                <Route path="search/:name" element={<SearchResults/>} />
+                <Route path="search/:name" element={<Search/>} />
             </Route>
         </Routes> 
       </BrowserRouter>

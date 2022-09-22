@@ -11,6 +11,7 @@ import { TopRated } from "./pages/topRated"
 
 function App() {
   const [search, setSearch] = useState("")
+  const [showId, setShowId] = useState(0)
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,7 +21,7 @@ function App() {
                 <Route path="top-popular" element={<TopPopular/>} />
                 <Route path="top-rated" element={<TopRated/>} />
                 <Route path="releases" element={<Releases/>} />
-                <Route path="shows/:title" element={<ShowInfo/>} />
+                <Route path="shows/:title" element={<ShowInfo showId = {showId}/>} />
                 <Route path="search" element={<Search search={search} />} />
             </Route>
         </Routes> 

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { searchShows } from "../../adapters"
 import { NoResults } from "../../components/noResults"
 import { SearchResults } from "../../components/searchResults"
-import { ITopShow, SearchProps } from "../../types"
+import { ITopShow, TSearchProps } from "../../types"
 
-export function Search({search}:SearchProps){
+export function Search({search}:TSearchProps){
     const [loading, setLoading] = useState(false)
     const [results, setResults] = useState<ITopShow[]>([])
     

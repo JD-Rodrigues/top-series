@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { getShows } from "../../adapters"
+import { Item } from "../../components/item"
 import { ITopShow } from "../../types"
 
 
@@ -14,9 +15,9 @@ export function AiringToday() {
     getResults()
 
     return(
-        <>
-            {results.map((show:ITopShow)=><p>{show.name}</p>)}
-        </>
+        <main className="container">
+            {results.map((show:ITopShow)=><Item show={show} />)}
+        </main>
     )
     
     

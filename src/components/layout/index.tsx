@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Outlet, useNavigate } from "react-router-dom";
-import { LayoutProps } from "../../types";
+import { TLayoutProps } from "../../types";
 
 
-export function Layout({setSearch}:LayoutProps) {
+export function Layout({setSearch}:TLayoutProps) {
     const navigate = useNavigate()
     const handleSearch = (e:React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()

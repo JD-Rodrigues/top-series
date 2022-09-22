@@ -1,4 +1,4 @@
-export interface ITopShow {
+interface ITopShow {
     backdrop_path:string;
     first_air_date:string;
     genre_ids:number[];
@@ -14,7 +14,17 @@ export interface ITopShow {
     vote_count:number;
 }
 
-export interface SearchResultsProps {
+interface SearchResultsProps {
     results: ITopShow[]
 }
+
+interface SearchProps {
+    search:string
+}
+
+interface LayoutProps {
+    setSearch:React.Dispatch<React.SetStateAction<string>>
+}
+
+export type {SearchProps, SearchResultsProps, ITopShow, LayoutProps}
 

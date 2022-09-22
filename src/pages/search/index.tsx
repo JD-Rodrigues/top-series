@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
 import { searchShows } from "../../adapters"
 import { NoResults } from "../../components/noResults"
 import { SearchResults } from "../../components/searchResults"
-import { ITopShow } from "../../types"
+import { ITopShow, SearchProps } from "../../types"
 
-export function Search(){
+export function Search({search}:SearchProps){
     const [loading, setLoading] = useState(false)
     const [results, setResults] = useState<ITopShow[]>([])
-    const {name} = useParams() 
     
     const fetchResults = async () => {
         setLoading(true)
-        const shows = name && await searchShows(name)
+        const shows = await searchShows(search)
         setResults(shows)  
         setLoading(false)
         
@@ -20,13 +18,14 @@ export function Search(){
 
     useEffect(()=>{
         fetchResults()
-    },[])
+    },[search])
 
     
     
     
     return (
         <>
+            
             {loading ? <h2>Loading</h2> : results.length > 0 ? <SearchResults results={results}/> : <NoResults />}
         </>
     )

@@ -1,12 +1,16 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { Outlet, useNavigate } from "react-router-dom";
+import { LayoutProps } from "../../types";
 
 
-export function Layout() {
+export function Layout({setSearch}:LayoutProps) {
     const navigate = useNavigate()
-    const handleSearch = () => {
-        const search = document.querySelector("#search") as HTMLInputElement   
-        search.value && navigate(`/${search.value}`)
+    const handleSearch = (e:React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        const search = document.querySelector("#search") as HTMLInputElement  
+        setSearch(search.value)
+        navigate(`/search`)
     }
     return(
         <>
@@ -18,9 +22,9 @@ export function Layout() {
                 <li><Link to="/top-rated">Mais votadas</Link></li>
                 <li><Link to="/releases">Lançamentos</Link></li>
             </ul>
-            <form onSubmit={handleSearch} action="">
+            <form action="">
                 <input type="search" id="search"/>
-                <button type="submit">Buscar</button>
+                <button onClick={handleSearch} type="submit">Buscar</button>
             </form>
             </nav>
             </header>

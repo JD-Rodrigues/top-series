@@ -10,7 +10,7 @@ export function Item({show}:TItemProps) {
                 className={styles.item__poster}
                 style={
                     {
-                        backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${show.backdrop_path})`
+                        backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${show.poster_path})`
                     }
                 }
             >

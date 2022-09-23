@@ -16,7 +16,7 @@ export function AiringToday() {
 
     return(
         <main className="container">
-            {results.map((show:ITopShow)=><Item show={show} />)}
+            {results.map((show:ITopShow)=><Item key={show.id} show={show} />)}
         </main>
     )
     

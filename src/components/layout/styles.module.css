@@ -1,0 +1,42 @@
+.header {
+    width: 100%;
+    height: 70px;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    background-image: linear-gradient(183deg, var(--main) 60%, var(--contrast) );
+}
+
+.logo {
+    width: 200px;
+    height: 100%;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    
+}
+
+.menu__option {
+    text-decoration: none;
+    color: white;
+    padding: 10px 30px;
+}
+
+.menu__option:hover {
+    color: var(--main);
+    background-color: var(--secondary);
+}
+
+.footer {
+    width: 100%;
+    height: 40px;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: white;
+    background-image: linear-gradient(3deg,#5808b3 60%, #00ddec );
+}

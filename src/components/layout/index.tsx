@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Outlet, useNavigate } from "react-router-dom";
 import { TLayoutProps } from "../../types";
+import logo from "../../assets/images/logo.png"
+import styles from "./styles.module.css"
 
 
 export function Layout({setSearch}:TLayoutProps) {
@@ -14,22 +16,43 @@ export function Layout({setSearch}:TLayoutProps) {
     }
     return(
         <>
-            <header>
-            <img src="" alt="" />
-            <nav>
-            <ul>
-                <li><Link to="/top-popular">Mais populares</Link></li>
-                <li><Link to="/top-rated">Mais votadas</Link></li>
-                <li><Link to="/releases">Lançamentos</Link></li>
-            </ul>
-            <form action="">
-                <input type="search" id="search"/>
-                <button onClick={handleSearch} type="submit">Buscar</button>
-            </form>
-            </nav>
+            <header className={styles.header}>
+                <img className={styles.logo} src={logo} alt="" />
+
+                <nav>
+                <ul className={styles.menu}>
+                    <li>
+                        <Link 
+                            className={styles.menu__option} 
+                            to="/top-popular"
+                        >
+                            Mais populares
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            className={styles.menu__option} 
+                            to="/top-rated"
+                        >
+                            Mais votadas
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            className={styles.menu__option} 
+                            to="/releases"
+                        >
+                            Lançamentos</Link>
+                    </li>
+                </ul>
+                </nav>
+                <form action="">
+                    <input type="search" id="search"/>
+                    <button onClick={handleSearch} type="submit">Buscar</button>
+                </form>
             </header>
             <Outlet />
-            <footer>© 2022 - Desenvolvido por Domingos Rodrigues</footer>
+            <footer className={styles.footer}>© 2022 - Desenvolvido por Domingos Rodrigues</footer>
         </>
     )
 }

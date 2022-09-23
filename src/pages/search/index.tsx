@@ -24,9 +24,8 @@ export function Search({search}:TSearchProps){
     
     
     return (
-        <>
-            
+        <main className="container">            
             {loading ? <h2>Loading</h2> : results.length > 0 ? <SearchResults results={results}/> : <NoResults />}
-        </>
+        </ main>
     )
 }

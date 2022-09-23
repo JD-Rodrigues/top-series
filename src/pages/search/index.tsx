@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { searchShows } from "../../adapters"
+import { Loading } from "../../components/loading"
 import { NoResults } from "../../components/noResults"
 import { SearchResults } from "../../components/searchResults"
 import { ITopShow, TSearchProps } from "../../types"
 
-export function Search({search}:TSearchProps){
+export function Search({search, setShowId}:TSearchProps){
     const [loading, setLoading] = useState(false)
     const [results, setResults] = useState<ITopShow[]>([])
     
@@ -25,7 +26,7 @@ export function Search({search}:TSearchProps){
     
     return (
         <main className="container">            
-            {loading ? <h2>Loading</h2> : results.length > 0 ? <SearchResults results={results}/> : <NoResults />}
+            {loading ? <Loading /> : results.length > 0 ? <SearchResults results={results} setShowId={setShowId}/> : <NoResults search={search} />}
         </ main>
     )
 }

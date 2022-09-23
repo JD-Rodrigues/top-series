@@ -24,6 +24,14 @@ export function Layout({setSearch}:TLayoutProps) {
                     <li>
                         <Link 
                             className={styles.menu__option} 
+                            to="/"
+                        >
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            className={styles.menu__option} 
                             to="/top-popular"
                         >
                             Mais populares
@@ -46,12 +54,12 @@ export function Layout({setSearch}:TLayoutProps) {
                     </li>
                 </ul>
                 </nav>
-                <form action="">
-                    <input type="search" id="search"/>
-                    <button onClick={handleSearch} type="submit">Buscar</button>
+                <form action="" className={styles.form__search}>
+                    <input type="search" className={styles.search__field} id="search"/>
+                    <button onClick={handleSearch} type="submit" className={styles.search__button}>Buscar</button>
                 </form>
             </header>
-            <Outlet />
+            <Outlet/>
             <footer className={styles.footer}>© 2022 - Desenvolvido por Domingos Rodrigues</footer>
         </>
     )

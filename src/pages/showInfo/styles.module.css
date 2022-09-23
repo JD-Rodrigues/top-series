@@ -1,0 +1,33 @@
+.show__info {
+    width: 100%;
+    height: 90vh;
+    border: solid red;
+}
+
+.show__info__poster {
+    width: 25%;
+    height: 100%;
+    border: solid red;
+}
+
+.show__info__poster__pic{
+    width: 100%;
+    height: 90%;
+    border: black solid;
+}
+
+.show__info__poster__provider {
+    height: 10%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    border: blue solid;
+}
+
+.show__info__poster__provider__logo {
+    width: 40px;
+    height: 100%;
+    border: green solid;
+}

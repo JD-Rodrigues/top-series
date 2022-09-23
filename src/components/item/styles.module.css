@@ -26,8 +26,8 @@
 }
 
 .item__add{
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 7px;
     align-self: flex-end;
     background-color: white;
@@ -44,10 +44,15 @@
     font-size: 14px;
     line-height: 20px;
     text-align: center;
+    text-decoration: none;
     color: var(--main);
     background-color: white;
     border-top: 3px solid var(--main) ;
     border-bottom: 5px solid var(--main);
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
+}
+
+.item__name:hover {
+    text-decoration: underline;
 }

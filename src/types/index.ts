@@ -90,11 +90,11 @@ interface IShowInfo {
    original_name:string;
    overview:string;
    popularity:number;
-   poster_path:string | null;
+   poster_path:string | undefined;
    production_companies:[
       
    ];
-   production_countries:TProductionCompany[]
+   production_countries:TProductionCompany[] | []
    seasons:TSeason[]
    spoken_languages:TSpokenLanguage[]
    status:string;
@@ -104,11 +104,21 @@ interface IShowInfo {
    vote_count:number;
 }
 
+type TTopShowsProps = {
+    setShowId:React.Dispatch<React.SetStateAction<number>>
+}
+
 type TSearchResultsProps = {
     results: ITopShow[]
+    setShowId:React.Dispatch<React.SetStateAction<number>>
 }
 
 type TSearchProps = {
+    search:string
+    setShowId:React.Dispatch<React.SetStateAction<number>>
+}
+
+type TNoResultsProps = {
     search:string
 }
 
@@ -120,9 +130,14 @@ type TShowInfoProps = {
     showId:number
 }
 
-type TItemProps = {
-    show:ITopShow
+type TShowDetails = {
+    result: IShowInfo
 }
 
-export type {TSearchProps, TSearchResultsProps, ITopShow, TLayoutProps, IShowInfo, TShowInfoProps, TItemProps}
+type TItemProps = {
+    show:ITopShow
+    setShowId:React.Dispatch<React.SetStateAction<number>>
+}
+
+export type {TSearchProps, TSearchResultsProps, ITopShow, TLayoutProps, IShowInfo, TShowInfoProps, TItemProps, TTopShowsProps, TNoResultsProps, TShowDetails}
 

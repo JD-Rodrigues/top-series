@@ -17,7 +17,7 @@ export const searchShows = async (query:string)=> {
 
 export const searchShowInfo = async (id:number)=> {
 
-    const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=8d2504a77b8984c90464eb612505b227&include_adult=true`)
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=8d2504a77b8984c90464eb612505b227&include_adult=true&append_to_response=watch/providers`)
     
     const results = await response.json()
     return await results

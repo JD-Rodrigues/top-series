@@ -17,12 +17,12 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/" element={<Layout setSearch={setSearch} />}>
-                <Route index element={<AiringToday />}/>
-                <Route path="top-popular" element={<TopPopular/>} />
-                <Route path="top-rated" element={<TopRated/>} />
-                <Route path="releases" element={<Releases/>} />
-                <Route path="shows/:title" element={<ShowInfo showId = {showId}/>} />
-                <Route path="search" element={<Search search={search} />} />
+                <Route index element={<AiringToday setShowId={setShowId} />}/>
+                <Route path="top-popular" element={<TopPopular setShowId={setShowId} />} />
+                <Route path="top-rated" element={<TopRated setShowId={setShowId} />} />
+                <Route path="releases" element={<Releases setShowId={setShowId} />} />
+                <Route path="show-info" element={<ShowInfo showId = {showId}/>} />
+                <Route path="search" element={<Search setShowId={setShowId} search={search} />} />
             </Route>
         </Routes> 
       </BrowserRouter>

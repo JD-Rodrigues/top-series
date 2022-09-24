@@ -50,9 +50,7 @@ export function ShowInfo({showId}:TShowInfoProps) {
                                     alt="" 
                                     className={styles.show__info__poster__provider__logo}
                                 />
-                                <p className="watch-now">
-                                    Assista agora
-                                </p>
+                                { brProvider ? <p className="watch-now">Assista agora</p> : <p className="watch-now">Sem opções de streaming</p>}
                             </div>
                         </div>
                         <main className={styles.show__info__details}>

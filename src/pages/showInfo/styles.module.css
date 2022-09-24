@@ -116,3 +116,43 @@
     font-weight: bold;
 }
 
+@media (max-width:900px) {
+    .show__info {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+    }
+
+    .show__info__details {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .show__details__rate {
+        justify-content: center;
+    }
+
+    .show__info__poster{
+        width: 150px;
+        height: auto;
+    }
+
+    .show__info__poster__provider__logo {
+        width: 30px;
+    }
+}
+
+@media (max-width:400px) {
+    .show__info__details{
+        font-size: 12px;
+    }
+    .show__details__title {
+        font-size: 20px;
+    }
+
+    .show__details__rate__value {
+        width: 40px;
+        height: 40px;
+    }
+}

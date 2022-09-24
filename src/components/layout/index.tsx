@@ -4,6 +4,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { TLayoutProps } from "../../types";
 import logo from "../../assets/images/logo.png"
 import styles from "./styles.module.css"
+import burguer from "../../assets/icons/menu-hamburguer.svg"
 
 
 export function Layout({setSearch}:TLayoutProps) {
@@ -59,6 +60,11 @@ export function Layout({setSearch}:TLayoutProps) {
                     <input type="search" className={styles.search__field} id="search"/>
                     <button onClick={handleSearch} type="submit" className={styles.search__button}>Buscar</button>
                 </form>
+                <div className={styles.menu__burguer__btn}>
+                        <img src={burguer} 
+                            alt="Botão do menu" 
+                        />
+                </div>
             </header>
             <Outlet/>
             <footer className={styles.footer}>© 2022 - Desenvolvido por Domingos Rodrigues</footer>

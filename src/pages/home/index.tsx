@@ -21,9 +21,15 @@ export function AiringToday({setShowId}:TTopShowsProps) {
     },[])
 
     return(
-        <main className="container">
+        <>
+            <header className="page__title">
+                <h1>Séries em exibição hoje</h1>
+            </header>
+            <main className="container">                
             {loading ? <Loading /> : results.map((show:ITopShow)=><Item key={show.id} show={show} setShowId={setShowId}/>)}
-        </main>
+            </main>
+        </>
+        
     )
     
     

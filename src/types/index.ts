@@ -104,6 +104,18 @@ interface IShowInfo {
    vote_count:number;
 }
 
+interface IBrProvider {
+    link:string;
+         flatrate:[
+            {
+               display_priority:number;
+               logo_path:string;
+               provider_id:number,
+               provider_name:string;
+            }
+         ]
+}
+
 type TTopShowsProps = {
     setShowId:React.Dispatch<React.SetStateAction<number>>
 }
@@ -139,5 +151,7 @@ type TItemProps = {
     setShowId:React.Dispatch<React.SetStateAction<number>>
 }
 
-export type {TSearchProps, TSearchResultsProps, ITopShow, TLayoutProps, IShowInfo, TShowInfoProps, TItemProps, TTopShowsProps, TNoResultsProps, TShowDetails}
+
+
+export type {TSearchProps, TSearchResultsProps, ITopShow, TLayoutProps, IShowInfo, IBrProvider, TShowInfoProps, TItemProps, TTopShowsProps, TNoResultsProps, TShowDetails}
 

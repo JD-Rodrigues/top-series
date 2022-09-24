@@ -20,8 +20,13 @@ export function TopPopular({setShowId}:TTopShowsProps) {
     },[])
 
     return(
-        <main className="container">
-            {loading ? <Loading /> : results.map((show:ITopShow)=><Item key={show.id} show={show} setShowId={setShowId}/>)}
-        </main>
+        <>
+            <header className="page__title">
+                    <h1>Séries mais populares</h1>
+            </header>
+            <main className="container">
+                {loading ? <Loading /> : results.map((show:ITopShow)=><Item key={show.id} show={show} setShowId={setShowId}/>)}
+            </main>
+        </>
     )
 }

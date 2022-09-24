@@ -47,6 +47,14 @@ html {
   src: url("./assets/fonts/Lato-Regular.ttf");
 }
 
+.page__title {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--main-text);
+}
+
 .container {
   width: 100%;
   min-height: calc(100vh - 110px);

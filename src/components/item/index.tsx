@@ -15,17 +15,19 @@ export function Item({show, setShowId}:TItemProps) {
 
     return(
         <div className={styles.item}>
-            <div 
-                className={styles.item__poster}
-                style={
-                    {
-                        backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${show.poster_path})`
+            <Link to="/show-info" onClick={showInfoHandler}>
+                <div 
+                    className={styles.item__poster}
+                    style={
+                        {
+                            backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${show.poster_path})`
+                        }
                     }
-                }
-            >
-                <div className={styles.item__rate}><p>{show.vote_average.toFixed(1)}</p></div>
-                <img className={styles.item__add} src={itemAdd} alt="" />
-            </div>
+                >
+                    <div className={styles.item__rate}><p>{show.vote_average.toFixed(1)}</p></div>
+                    <img className={styles.item__add} src={itemAdd} alt="" />
+                </div>
+            </Link>
             <Link 
                 className={styles.item__name} 
                 to="/show-info"

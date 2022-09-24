@@ -17,8 +17,9 @@ export function Layout({setSearch}:TLayoutProps) {
     return(
         <>
             <header className={styles.header}>
-                <img className={styles.logo} src={logo} alt="" />
-
+                <Link to="/">
+                    <img className={styles.logo} src={logo} alt="" />
+                </Link>
                 <nav>
                 <ul className={styles.menu}>
                     <li>

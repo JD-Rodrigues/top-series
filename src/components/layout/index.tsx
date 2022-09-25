@@ -15,7 +15,7 @@ export function Layout({setSearch}:TLayoutProps) {
         e.preventDefault()
         const search = document.querySelector("#search") as HTMLInputElement  
         setSearch(search.value)
-        navigate(`/search`)
+        search.value && navigate(`/search`)
     }
     
     return(

@@ -1,5 +1,5 @@
 .show__info__wrapper {
-    min-height: calc(100vh - 110px);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

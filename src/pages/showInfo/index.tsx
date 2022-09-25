@@ -3,13 +3,14 @@ import { searchBrProvider, searchShowInfo } from "../../adapters"
 import { IBrProvider, IShowInfo, TShowInfoProps } from "../../types"
 import styles from "./styles.module.css"
 import sad from "../../assets/images/sad.png"
-import { NoResults } from "../../components/noResults"
+import { Link } from "react-router-dom"
+import { Loading } from "../../components/loading"
 
 
 export function ShowInfo({showId}:TShowInfoProps) {
-    const [loading, setLoading] = useState(false)
     const [result, setResult] = useState<IShowInfo>()
     const [brProvider, setBrProvider] = useState<IBrProvider>()
+    const [loading, setLoading] = useState(false)
     
     
     const fetchResult = async () => {
@@ -18,8 +19,7 @@ export function ShowInfo({showId}:TShowInfoProps) {
         const providers = await searchBrProvider(showId)
         setResult(await show)  
         setBrProvider(await providers.results.BR)
-        console.log(providers.results.BR)
-        setLoading(false)        
+        setLoading(false)     
     }
 
     useEffect(()=>{
@@ -29,10 +29,14 @@ export function ShowInfo({showId}:TShowInfoProps) {
     
     
     return(
-        result 
-            ? 
-                <div className="container" id={styles.show__info__bg} style={{
-                    backgroundImage:`url("https://www.themoviedb.org/t/p/w440_and_h660_face${result.backdrop_path}")`
+        <div className={styles.show__info__wrapper}>
+            {loading ? <Loading /> :
+            result ?
+                <div className="container" 
+                    id={styles.show__info__bg} 
+                    style={
+                        {
+                            backgroundImage:`url("https://www.themoviedb.org/t/p/w440_and_h660_face${result.backdrop_path}")`
                     
                 }}>
                     <div className={styles.show__info}>
@@ -43,14 +47,29 @@ export function ShowInfo({showId}:TShowInfoProps) {
                                 className={styles.show__info__poster__pic} 
                             />
                             <div 
-                                className={styles.show__info__poster__provider}
-                            >
-                                <img 
-                                    src={brProvider ? `https://www.themoviedb.org/t/p/original${ brProvider.flatrate[0].logo_path}` : sad }
-                                    alt="" 
-                                    className={styles.show__info__poster__provider__logo}
-                                />
-                                { brProvider ? <p className="watch-now">Assista agora</p> : <p className="watch-now">Sem opções de streaming</p>}
+                                        className={styles.show__info__poster__provider}
+                                    >
+                                        <img 
+                                            src={brProvider ? `https://www.themoviedb.org/t/p/original${ brProvider.flatrate[0].logo_path}` : sad}
+                                            alt="Logo do serviço de streaming" 
+                                            className={styles.show__info__poster__provider__logo}
+                                        />
+                                        {
+                                            brProvider 
+                                                ?   
+                                                    <p 
+                                                        className={styles.streaming}
+                                                    >
+                                                        Streaming
+                                                    </p>
+                                                :   
+                                                    <p
+                                                        className={styles.streaming}
+                                                    >
+                                                        Não disponível em streaming
+                                                    </p>
+                                        }
+                                        
                             </div>
                         </div>
                         <main className={styles.show__info__details}>
@@ -107,6 +126,8 @@ export function ShowInfo({showId}:TShowInfoProps) {
                     </div>
                 </div> 
             : 
-                null           
+                null  }        
+        </div>
+         
     )
 }

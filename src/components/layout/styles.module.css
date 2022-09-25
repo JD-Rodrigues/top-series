@@ -50,6 +50,23 @@
     width: 100%;
 }
 
+#show__menu {
+    right: 0;   
+}
+
+.x__close__menu{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: none;
+    background-image: url("../../assets/./icons/x.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
 .form__search {
     display: flex;
     column-gap: 5px;
@@ -71,6 +88,7 @@
     background-color: var(--secondary);
     font-weight: bold;
     color: var(--main-text);
+    cursor: pointer;
 }
 
 .search__button:hover {
@@ -91,10 +109,27 @@
 
 @media (max-width:1112px) {
     .menu {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -70%;
+        width: 40%;
+        height: 100vh;    
+        padding: 30px;   
+        flex-direction: column;
+        background-image: linear-gradient(270deg,#5808b3 90%, #00ddec );
+        z-index: 2;
+    }
+
+    .menu__option{
+        display: flex;
+        padding: 10px 20px;
     }
 
     .menu__burguer__btn {
+        display: flex;
+    }
+
+    .x__close__menu {
         display: flex;
     }
 }
@@ -127,6 +162,16 @@
     }
 }
 
+@media (max-width:515px) {
+    .menu__option {
+        font-size: 14px;
+    }
+
+    .menu {
+        width: 50%;
+    }
+}
+
 @media (max-width:450px) {
     .search__field, .search__button {
         height: 15px;
@@ -151,6 +196,16 @@
     .logo{
         width: 100px;
     }
+
+    .menu__option {
+        font-size: 12px;
+    }
+
+    .menu {
+        width: 60%;
+    }
+
+    
 }
 
 @media (max-width:350px) {
@@ -164,5 +219,17 @@
         justify-content: flex-start;
         row-gap: 7px;
         align-items: center;
+    }
+
+    
+}
+
+@media (max-width:350px) {
+    .menu {
+        width: 80%;
+    }
+
+    .menu__option {
+        font-size: 10px;
     }
 }

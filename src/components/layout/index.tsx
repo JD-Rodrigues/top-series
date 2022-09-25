@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Outlet, useNavigate } from "react-router-dom";
 import { TLayoutProps } from "../../types";
@@ -9,12 +9,15 @@ import burguer from "../../assets/icons/menu-hamburguer.svg"
 
 export function Layout({setSearch}:TLayoutProps) {
     const navigate = useNavigate()
+    const [mobileMenu, setMobileMenu] = useState(false)
+
     const handleSearch = (e:React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         const search = document.querySelector("#search") as HTMLInputElement  
         setSearch(search.value)
         navigate(`/search`)
     }
+    
     return(
         <>
             <header className={styles.header}>
@@ -22,35 +25,44 @@ export function Layout({setSearch}:TLayoutProps) {
                     <img className={styles.logo} src={logo} alt="" />
                 </Link>
                 <nav>
-                <ul className={styles.menu}>
+                <ul className={styles.menu} id={mobileMenu ? styles.show__menu : ""}>
+                    <div 
+                        className={styles.x__close__menu}
+                        onClick={()=>setMobileMenu(false)}
+                    >
+                    </div>
                     <li>
                         <Link 
-                            className={styles.menu__option} 
                             to="/"
+                            className={styles.menu__option} 
+                            onClick={()=>setMobileMenu(false)}
                         >
                             Home
                         </Link>
                     </li>
                     <li>
                         <Link 
-                            className={styles.menu__option} 
                             to="/top-popular"
+                            className={styles.menu__option} 
+                            onClick={()=>setMobileMenu(false)}
                         >
                             Mais populares
                         </Link>
                     </li>
                     <li>
                         <Link 
-                            className={styles.menu__option} 
                             to="/top-rated"
+                            className={styles.menu__option} 
+                            onClick={()=>setMobileMenu(false)}
                         >
                             Mais votadas
                         </Link>
                     </li>
                     <li>
                         <Link 
-                            className={styles.menu__option} 
                             to="/releases"
+                            className={styles.menu__option} 
+                            onClick={()=>setMobileMenu(false)}
                         >
                             Lançamentos</Link>
                     </li>
@@ -60,7 +72,9 @@ export function Layout({setSearch}:TLayoutProps) {
                     <input type="search" className={styles.search__field} id="search"/>
                     <button onClick={handleSearch} type="submit" className={styles.search__button}>Buscar</button>
                 </form>
-                <div className={styles.menu__burguer__btn}>
+                <div className={styles.menu__burguer__btn}
+                    onClick = {()=>setMobileMenu(true)}
+                >
                         <img src={burguer} 
                             alt="Botão do menu" 
                         />

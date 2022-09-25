@@ -1,5 +1,5 @@
 export const getShows = async (tag:string | number)=> {
-    const response = await fetch(`https://api.themoviedb.org/3/tv/${tag}?api_key=8d2504a77b8984c90464eb612505b227&language=pt-BR`)
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${tag}?api_key=8d2504a77b8984c90464eb612505b227`)
     
     const responseJson = await response.json()
     const results = await responseJson.results
@@ -17,7 +17,7 @@ export const searchShows = async (query:string)=> {
 
 export const searchShowInfo = async (id:number)=> {
 
-    const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=8d2504a77b8984c90464eb612505b227&include_adult=true`)
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=8d2504a77b8984c90464eb612505b227&include_adult=true&language=pt-BR`)
     
     const results = await response.json()
     return await results

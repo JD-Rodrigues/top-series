@@ -15,7 +15,10 @@ export function Item({show, setShowId}:TItemProps) {
 
     return(
         <div className={styles.item}>
-            <Link to="/show-info" onClick={showInfoHandler}>
+            <Link 
+                to="/show-info" 
+                className={styles.item__anchor}
+                onClick={showInfoHandler}>
                 <div 
                     className={styles.item__poster}
                     style={
@@ -24,7 +27,7 @@ export function Item({show, setShowId}:TItemProps) {
                         }
                     }
                 >
-                    <div className={styles.item__rate}><p>{show.vote_average.toFixed(1)}</p></div>
+                    <p className={styles.item__rate}>{show.vote_average.toFixed(1)}</p>
                     <img className={styles.item__add} src={itemAdd} alt="" />
                 </div>
             </Link>
